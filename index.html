@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Controle Pessoal de Chamados</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Controle Pessoal de Chamados</h1>
+    <p class="subtitle">Preenchimento rápido — registre, edite e exclua chamados localmente.</p>
+  </header>
+  <main>
+    <form id="chamadoForm">
+      <div class="row">
+        <label>Data<input type="date" id="data" required></label>
+        <label>Chamado<input type="text" id="chamado" placeholder="Número ou título" required></label>
+      </div>
+      <div class="row">
+        <label>Solicitante<input type="text" id="solicitante" placeholder="Quem solicitou"></label>
+        <label>Usuário<input type="text" id="usuario" placeholder="Responsável/usuário"></label>
+      </div>
+      <div class="row">
+        <label>Localidade<input type="text" id="localidade" placeholder="Onde ocorreu"></label>
+      </div>
+      <label class="full">Atividade<textarea id="atividade" rows="3" placeholder="Descrição rápida"></textarea></label>
+      <div class="actions">
+        <button type="submit" id="saveBtn">Adicionar</button>
+        <button type="button" id="clearBtn">Limpar</button>
+      </div>
+    </form>
+      <div class="export-area">
+        <button type="button" id="exportBtn">Exportar CSV</button>
+        <button type="button" id="importBtn">Importar CSV</button>
+        <input id="importFile" type="file" accept=".csv" style="display:none">
+        <p class="hint">Exporta a lista atual para um arquivo CSV. Importa um CSV com as colunas: Data, Chamado, Solicitante, Usuario, Localidade, Atividade.</p>
+      </div>
+
+    <section id="listaSection">
+      <h2>Chamados</h2>
+      <table id="lista">
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Chamado</th>
+            <th>Solicitante</th>
+            <th>Usuário</th>
+            <th>Localidade</th>
+            <th>Atividade</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </main>
+  <footer>
+    <small>Dados armazenados no seu navegador (localStorage).</small>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
